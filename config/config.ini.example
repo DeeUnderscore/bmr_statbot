@@ -1,0 +1,35 @@
+; This is an example config file. It should be renamed to 'config.ini' before 
+; running. 
+
+[database]
+user = bmrstatbot  
+password = PASSWORDHERE
+
+; address including port separated by a :
+address = 127.0.0.1:5432 
+
+; name of the database
+name = bmrstatbot  
+
+[reddit]
+; Reddit username and password
+user = example
+password = 123456789
+
+; Name of the BMR subreddit
+bmr_name = browsemyreddit
+
+; user-agent to report to Reddit
+user_agent = bmr-statbot/1.0.0 (github)
+
+[scraper]
+sleep_time = 180 
+
+; Number of submissions to go through before giving up searching 
+; In order to find submissions newer or older than submission x, we have to go 
+; through the new queue until we find submission x, and then go up or down the 
+; list. This setting controls how soon we give up if we can't find submission x. 
+give_up_search_after = 1000
+
+[recommender]
+recommend_count = 5

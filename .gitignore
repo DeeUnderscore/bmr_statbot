@@ -1,0 +1,6 @@
+notes/
+.project
+.pydevproject
+
+*.pyc
+*.class

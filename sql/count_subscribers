@@ -1,0 +1,6 @@
+﻿SELECT subreddits.name,
+  count(*) as subscribers
+FROM view_user_pref, subreddits
+WHERE subreddits.id = view_user_pref.subreddit
+GROUP BY subreddits.id, subreddits.name
+ORDER BY subscribers DESC;
