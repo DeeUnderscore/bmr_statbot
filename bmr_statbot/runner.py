@@ -15,7 +15,7 @@ def run_scraper(post=True):
     scraper = BMRScraper(post)
     
     while True:
-        scraper.scrape_posts_up(post)
+        scraper.scrape_posts_up(post, reply=False)
         sleep(config.sleep_time)
 
 
@@ -32,4 +32,4 @@ if __name__ == '__main__':
     
     logger.info('Starting bmr_statbot...')
        
- #   run_scraper(True)
+    run_scraper(True)
