@@ -8,14 +8,22 @@ from bmr_statbot import config
 
 from time import sleep
 
+from requests.exceptions import RequestException
 
 scraper = None
 
-def run_scraper(post=True):
+def run_scraper(post=True, logger=None):
     scraper = BMRScraper(post)
     
     while True:
-        scraper.scrape_posts_up(post, reply=False)
+        try:
+            scraper.scrape_posts_up(post)
+        except RequestException as e:
+            if logger is not None:
+                logger.erorr('HTTP problem while scraping: {0}'.format(e))
+            else:
+                raise 
+            
         sleep(config.sleep_time)
 
 
@@ -32,4 +40,4 @@ if __name__ == '__main__':
     
     logger.info('Starting bmr_statbot...')
        
-    run_scraper(True)
+    run_scraper(True, logger)
