@@ -20,7 +20,7 @@ def run_scraper(post=True, logger=None):
             scraper.scrape_posts_up(post)
         except RequestException as e:
             if logger is not None:
-                logger.erorr('HTTP problem while scraping: {0}'.format(e))
+                logger.error('HTTP problem while scraping: {0}'.format(e))
             else:
                 raise 
             
